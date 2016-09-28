@@ -1,3 +1,4 @@
+/*用来清空某个文件夹，当你需要下载某些图片进行测试的时候，会发现这个方法很有用*/
 var fs = require('fs');
 
 function clear(path){
