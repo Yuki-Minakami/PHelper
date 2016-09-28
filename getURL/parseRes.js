@@ -12,15 +12,18 @@ var parse = {
             return;
         }
         if (response.statusCode == 200) {
+            console.log("success");
             $ = cheerio.load(response.body);
             var count = this.getViewCount($);
+            console.log(count);
             if(count){
+
                 var data = {
                     "url":this.getUrl($),
                     "count":count,
                     "tag":this.getTag($)
                 }
-                persist.saveToJson(JSON.stringify(data));
+              //  persist.saveToJson(JSON.stringify(data));
             } else{
                 return;
             }
@@ -30,8 +33,11 @@ var parse = {
     },
 
     getViewCount:function($){
+        console.log($.html());
+        return;
         var viewCount = $('dd.view-count').html();
-        if (viewCount>50000) {
+        console.log("viewcount",viewCount)
+        if (viewCount/*>50000*/) {
             return viewCount
         } else {
             return undefined;
@@ -43,8 +49,9 @@ var parse = {
 
     },
     getUrl:function($) {
-        var imgHTML = $('div._layout-thumbnail', 'div.works_display').html();
+        var imgHTML = $( 'div.works_display','div._layout-thumbnail').html();
         if(!imgHTML) return;
+        console.log(imgHTML);
         $ = cheerio.load(imgHTML);
         var imgURL = $('img').attr('src');
         imgURL = imgURL.replace('c/600x600/img-master', 'img-original');

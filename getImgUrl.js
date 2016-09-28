@@ -42,26 +42,18 @@ function fetchImg(begin,end) {
       }
     });
 
-
-
-
 }
 
-var temp =0;
 function processPage(err,response){
     if (err) {
         console.log(err);
         return;
     }
     if (response.statusCode == 200) {
-        console.log("get");
-        temp++;
+
         if(temp == 1)
         $ = cheerio.load(response.body);
-
-        console.log(response.body);
         var viewCount = $('dd.view-count').html();
-
         if (viewCount &&  viewCount>10000) {
             console.log("get it");
             var imgHTML = $('div._layout-thumbnail', 'div.works_display').html();

@@ -18,6 +18,8 @@ var interval = setInterval(function(){
 
     download(lines[i],'d2')
 
+    i++;
+
 
 
 

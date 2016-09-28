@@ -1,0 +1,9 @@
+/node_modules
+download/fate
+download/image
+download/toho
+download/touken
+download/d2
+*.txt
+*.dat
+*.jpg
