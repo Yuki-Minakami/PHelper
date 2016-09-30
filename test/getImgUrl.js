@@ -50,11 +50,12 @@ function processPage(err,response){
         return;
     }
     if (response.statusCode == 200) {
-
-        if(temp == 1)
+       // console.log("get it");
         $ = cheerio.load(response.body);
-        var viewCount = $('dd.view-count').html();
-        if (viewCount &&  viewCount>10000) {
+        var viewCount = $('li.info span.views').html();
+        console.log(viewCount);
+        if (viewCount)//&&  viewCount>10000)
+        {
             console.log("get it");
             var imgHTML = $('div._layout-thumbnail', 'div.works_display').html();
             if(!imgHTML) return;
@@ -63,7 +64,7 @@ function processPage(err,response){
             imgURL = imgURL.replace('c/600x600/img-master', 'img-original');
             imgURL = imgURL.replace('p0_master1200', 'p0');
             console.log(imgURL);
-            writeImagePath(imgURL);
+            //writeImagePath(imgURL);
         } else {
             return;
         }

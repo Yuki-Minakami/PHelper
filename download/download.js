@@ -7,7 +7,12 @@ var request = require('request');
 
 /*url format: http://i2.pixiv.net/c/600x600/img-master/img/2014/08/14/23/06/55/45358677_p0_master1200.jpg*/
 function download(url,path){
-    //var id= url.substring(url.lastIndexOf('/')+1,url.indexOf('_'));
+    if(!url) {
+        console.log("Must specify a url");
+        return;
+    }
+    if(!path) path = '.';
+    var id= url.substring(url.lastIndexOf('/')+1,url.indexOf('_'));
     var filename = url.replace(/\//g,"+").replace(/:/g,"*");
 
     var rep = /i[0-9].pixiv.net/;
