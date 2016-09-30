@@ -4,6 +4,7 @@
 var cheerio = require('cheerio');
 var fs = require('fs');
 var persist = require('./persist.js');
+var util = require("./util.js");
 
 var parse = {
     processPage:function(err,response){
@@ -28,20 +29,18 @@ var parse = {
                 return;
             }
 
-
         }
     },
 
     getViewCount:function($){
-        console.log($.html());
-        return;
-        var viewCount = $('dd.view-count').html();
-        console.log("viewcount",viewCount)
-        if (viewCount/*>50000*/) {
-            return viewCount
-        } else {
+
+        var viewCount = coalesce($('dd.view-count').html(),$('li.info span.views').html());
+        if(!viewCount){
+            console.log("selector error, the image may have been deleted");
             return undefined;
         }
+        return viewCount;
+
     },
     getTag:function($){
         var tag = $('.text','ul.tags').html();
@@ -49,15 +48,15 @@ var parse = {
 
     },
     getUrl:function($) {
-        var imgHTML = $( 'div.works_display','div._layout-thumbnail').html();
-        if(!imgHTML) return;
-        console.log(imgHTML);
-        $ = cheerio.load(imgHTML);
-        var imgURL = $('img').attr('src');
-        imgURL = imgURL.replace('c/600x600/img-master', 'img-original');
-        imgURL = imgURL.replace('p0_master1200', 'p0');
-        console.log(imgURL);
-        return imgURL;
+        var imgURL = util.coalesce($('li.selected_works a img').attr('src'),$('div.works_display div.ui-modal-trigger img').attr('src'));
+        if(imgURL){
+            imgURL = imgURL.replace('c/600x600/img-master', 'img-original').replace('p0_master1200', 'p0');
+            console.log(imgURL);
+            return imgURL;
+        }
+
+        return undefined;
+
     }
 }
 
