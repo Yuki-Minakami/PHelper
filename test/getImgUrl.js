@@ -61,18 +61,15 @@ function processPage(err,response){
 
         $ = cheerio.load(response.body);
        // console.log($('dd.view-count').html());
-        //console.log($.html());
-        //process.exit();
+        console.log($.html());
+        process.exit();
         var viewCount = coalesce($('dd.view-count').html(),$('li.info span.views').html());
         if(!viewCount){
             console.log("selector error, the image may have been deleted");
             return;
         }
         var imgURL = coalesce($('li.selected_works a img').attr('src'),$('div.works_display div.ui-modal-trigger img').attr('src'));
-       // imgURL = imgURL.replace('c/600x600/img-master', 'img-original');
-       // imgURL = imgURL.replace('p0_master1200', 'p0');
         console.log(imgURL);
-        //writeImagePath(imgURL);
 
     }
 
@@ -84,7 +81,7 @@ function writeImagePath(data){
 
 }
 //845 986
-var i = 53545000;
+var i = 53546000;
 
 //fetchImg(51463845,51463850);
 

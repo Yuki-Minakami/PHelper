@@ -18,8 +18,8 @@ console.log($2('li.selected_works a img').attr('src'));
 
 
 
-var html4 = '<div class="c1"><img src="src1"/></div>';
+var html4 = '<ul class="tagCloud"><li class="level1">level1</li><li class="level1">level2</li><li class="level3">level3</li></ul>';
 
 var $4 = cheerio.load(html4);
 
-console.log($4('div[class=c1]').attr("src"));
+console.log($4('ul.tagCloud li.level1').html());

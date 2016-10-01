@@ -5,7 +5,7 @@ var async = require('async'),
     request = require('request'),
 
     parseRes = require('./parseRes.js'),
-    createRequestParams = require('./config.js');
+    createRequestParams = require('./requestHeader.js');
 
 
 
