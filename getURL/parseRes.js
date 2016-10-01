@@ -44,7 +44,7 @@ var parse = {
 
     },
     getTag:function($){
-        var tag = $('ul.tagCloud li.level1').html();
+        var tag = $('ul.tagCloud li.level1').html().toString().replace(/<span.*<\/span>/,"");
         return unescape(tag.replace(/&#x/g,'%u').replace(/;/g,''));
 
     },
