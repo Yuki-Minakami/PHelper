@@ -7,6 +7,6 @@ request(option,function(err,response){
     if(err){
         console.log("error");
     }
-    console.log(response.body);
+  //  console.log(response.body);
     console.log("end time:",process.uptime());
 });

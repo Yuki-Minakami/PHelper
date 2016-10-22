@@ -16,8 +16,10 @@
 
 ## 安装与运行
 ##### getURL 和download是两个分开的过程
+
 * 将项目克隆到本地后，在根目录下运行npm install
 * 进入getURL文件夹，运行 node master.js ,如果出现了依赖不存在的错误，请根据提示信息手动安装
+* 注：由于网络原因，pixiv的http request可能不流畅,运行master.js是会长时间没有结果，要测试的话请运行getURL/example.js 查看一次请求需要的时间
 
 ------------------
 
