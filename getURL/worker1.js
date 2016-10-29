@@ -19,7 +19,6 @@ function fetchURL() {
     clearTimeout(currentTimeout);
   }
   else {
-    debugger
     fetch(i,i+10);
     i=i+10;
     currentTimeout = setTimeout("fetchURL()", 2000);
