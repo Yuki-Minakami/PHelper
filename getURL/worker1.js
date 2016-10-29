@@ -16,11 +16,11 @@ function fetchURL() {
   console.log(i);
   if(i>end) {
     process.exit(1);
-    clearTimeout(currentTimeout);
   }
   else {
     fetch(i,i+10);
     i=i+10;
-    currentTimeout = setTimeout("fetchURL()", 2000);
+    currentTimeout = setTimeout(fetchURL, 2000);
   }
 }
+fetchURL()
