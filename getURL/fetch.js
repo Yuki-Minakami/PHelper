@@ -15,9 +15,10 @@ function fetchImg(begin,end) {
     for(i=begin;i<end;i++){
         options.push(createRequestParams(i));
     }
-
     async.map(options,request,function(err,response){
-
+        if(err){
+            console.log(err);
+        }
         for(i=0;i<options.length;i++){
             parseRes.processPage(err,response[i])
         }
