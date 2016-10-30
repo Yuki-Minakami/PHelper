@@ -7,11 +7,13 @@ request(option,function(err,response){
     if(err){
         console.log("error");
     }
-    console.log(response.statusCode);
+    //console.log(response.statusCode);
     if(response.statusCode == 200){
-        console.log("end time:",process.uptime());
+        console.log("success,end time:",process.uptime());
     }else{
         console.log("get http response error,check your network");
     }
+
+   // console.log("end time:",process.uptime());
 
 });

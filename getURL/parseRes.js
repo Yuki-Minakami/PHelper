@@ -37,7 +37,7 @@ var parse = {
 
         var viewCount = util.coalesce($('dd.view-count').html(),$('li.info span.views').html());
         if(!viewCount || viewCount < config.minViewCount ){
-         //   console.log("selector error, the image may have been deleted");
+            console.log("selector error, the image may have been deleted");
             return undefined;
         }
         return viewCount;

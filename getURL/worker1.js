@@ -10,6 +10,7 @@ var begin =  Number(process.argv[2]);
 var end = Number(process.argv[3]);
 console.log('begin:',begin,'end:',end);
 var i = begin;
+var gcFlag = 0;
 
 var currentTimeout;
 function fetchURL() {
@@ -24,3 +25,4 @@ function fetchURL() {
   }
 }
 fetchURL()
+

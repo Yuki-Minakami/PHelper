@@ -6,7 +6,7 @@ var fs = require('fs');
 var persist = {
     saveToJson:function(data){
         data+='\n';
-        fs.writeFileSync('./url.dat',data,{flag:'a'});
+        fs.writeFileSync('./url2.dat',data,{flag:'a'});
     },
     saveToDB:function(){
 

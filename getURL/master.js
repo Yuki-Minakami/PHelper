@@ -4,11 +4,7 @@
 var child_process = require('child_process');
 
 var fs = require('fs');
-
-var begin = 306;
-var end  = 549;
-
-var tmp = 40100000;
+var tmp = 45000000;
 var process  = [];
 var status =[];
 
@@ -18,7 +14,6 @@ function start() {
         tmp+=50000;
 
    }
-
         process[0].on('exit', function () {
             console.log('process exit');
 
@@ -28,12 +23,6 @@ function start() {
             process[4].kill();
             start();
         });
-
-
-
-
-
-
 }
 
 start();
