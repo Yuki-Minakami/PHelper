@@ -10,6 +10,7 @@ var async = require('async'),
 
 
 function fetchImg(begin,end) {
+    console.log("fetch begin ",begin,"fetch end ",end)
     var i =0;
     var options = [];
     for(i=begin;i<end;i++){

@@ -16,7 +16,6 @@ function start() {
    }
         process[0].on('exit', function () {
             console.log('process exit');
-
             process[1].kill();
             process[2].kill();
             process[3].kill();
