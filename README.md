@@ -3,6 +3,9 @@
 主要代码分布在getURL和download文件夹中
 ##### getURL：按照ID逐个遍历pixiv上的图片，按一定规则筛选后提取页面中的图片URL，写入文件中
 ##### download：读取url文件下载图片
+
+----------------
+v1.1更新 使用ES2017的async/await改善了异步流程，作为一个独立的worker实现，详见worker3.js
 ----------------
 
 ## 项目分支
