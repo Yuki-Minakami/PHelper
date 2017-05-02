@@ -10,6 +10,7 @@
     "mongodb": "^1.4.40",
     "monk": "https://github.com/vccabral/monk.git",
     "request": "",
+    "request-promise-native": "^1.0.3",
     "superagent": ""
   }
 }

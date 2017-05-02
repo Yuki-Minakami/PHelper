@@ -14,14 +14,15 @@ var parse = {
 
         if(count){
             console.log("view count:", count);
-            var data = {
-                "url":this.getUrl($),
-                "count":count,
-                "tag":this.getTag($)
-            }
-            console.log("url: ",data.url," count: ",data.count," tag: ",data.tag);
+
             if(count >10000){
                 persist.saveToJson(JSON.stringify(data));
+                var data = {
+                    "url":this.getUrl($),
+                    "count":count,
+                    "tag":this.getTag($)
+                }
+                console.log("url: ",data.url," count: ",data.count," tag: ",data.tag);
             }
 
         } else{

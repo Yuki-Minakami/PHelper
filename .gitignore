@@ -8,3 +8,5 @@ download/d2
 *.txt
 *.dat
 *.jpg
+/async_demo
+/server
