@@ -1,17 +1,14 @@
-/**
- * Created by likai on 16/3/21.
- */
-
 var fs = require('fs');
 var request = require('request');
+var count = 0;
 
 /*url format: http://i2.pixiv.net/c/600x600/img-master/img/2014/08/14/23/06/55/45358677_p0_master1200.jpg*/
-function download(url,path){
+function download(url,callback){
     if(!url) {
         console.log("Must specify a url");
         return;
     }
-    if(!path) path = '.';
+   var path = 'image';
     var id= url.substring(url.lastIndexOf('/')+1,url.indexOf('_'));
     var filename = url.replace(/\//g,"+").replace(/:/g,"*");
 
@@ -34,8 +31,19 @@ function download(url,path){
     };
 
 
-    request(options).pipe(fs.createWriteStream(path+'/'+filename)).on('close', function(){console.log('done');});
 
+    request(options)
+        .pipe(fs.createWriteStream(path+'/'+filename))
+        .on('close', function(){
+            console.log('已下载',count++);
+            //setTimeout(function(){callback(null,url);},5000)
+
+            if(count %10 == 0){
+                console.log(process.memoryUsage());
+            }
+            callback(null,url);
+        });
 }
+
 
 module.exports = download;

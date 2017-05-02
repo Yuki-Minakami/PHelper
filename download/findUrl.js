@@ -5,39 +5,23 @@
  *
  */
 var fs = require('fs');
-var data = fs.readFileSync('url.dat','utf-8');
-
-var lines = data.split("\n");
-console.log(lines.length);
-
-
-
 function findInvalidImg(path){
     var files = fs.readdirSync(path);
     var i=0;
     var invalidImgList = []
     for(var j = 0;j<files.length;j++){
-
         var state = fs.statSync(path+ '/' +files[j]);
         if(state.size<100){
             invalidImgList.push(files[j]);
-
         }
     }
-
     return invalidImgList;
 }
 
 function writeInvalidImg(){
-
     var ud = findInvalidImg('./image');
-
     for(var j =0;j<ud.length;j++){
         data+='\n';
         fs.writeFileSync('./relist.dat',data,{flag:'a'});
     }
-
-
 }
-
-getUrl();
