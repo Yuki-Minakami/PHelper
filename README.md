@@ -5,7 +5,7 @@
 ##### download：读取url文件下载图片
 
 ----------------
-v1.1更新 使用ES2017的async/await改善了异步流程，作为一个独立的worker实现，详见worker3.js
+2017-05-02 v1.1更新 使用ES2017的async/await改善了异步流程，作为一个独立的worker实现，详见worker3.js
 ----------------
 
 ## 项目分支
