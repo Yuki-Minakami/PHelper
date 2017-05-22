@@ -1,6 +1,9 @@
 {
   "name": "spider",
   "version": "0.0.1",
+  "scripts": {
+    "test": "ava"
+  },
   "dependencies": {
     "async": "^1.5.1",
     "bluebird": "^3.3.4",
@@ -12,5 +15,8 @@
     "request": "",
     "request-promise-native": "^1.0.3",
     "superagent": ""
+  },
+  "devDependencies": {
+    "ava": "^0.19.1"
   }
 }
