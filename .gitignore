@@ -4,7 +4,6 @@ download/image
 download/toho
 download/touken
 download/d2
-*.txt
 *.dat
 *.jpg
 /async_demo

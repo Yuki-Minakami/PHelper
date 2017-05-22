@@ -15,7 +15,8 @@
     "request": "",
     "request-promise-native": "^1.0.3",
     "superagent": "",
-    "ava": "^0.19.1"
+    "ava": "^0.19.1",
+    "mongoose": "^4.9.4"
   }
 
 }
