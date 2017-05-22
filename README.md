@@ -1,6 +1,6 @@
 # PHelper (V1.0正式版)
 [![Build Status](https://travis-ci.org/Yuki-Minakami/PHelper.svg?branch=v1)](https://travis-ci.org/Yuki-Minakami/PHelper)
-
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 ### 这是一个基于Node.js的爬虫项目，主要用来爬取[pixiv-插画网站](http://pixiv.net)上的高分图片
 主要代码分布在getURL和download文件夹中
