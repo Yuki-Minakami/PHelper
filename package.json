@@ -14,9 +14,8 @@
     "monk": "https://github.com/vccabral/monk.git",
     "request": "",
     "request-promise-native": "^1.0.3",
-    "superagent": ""
-  },
-  "devDependencies": {
+    "superagent": "",
     "ava": "^0.19.1"
   }
+
 }
