@@ -31,7 +31,7 @@ async function RequestId(id){
     console.log(id);
     var option = createHeader(id.toString());
     let response =  await rp(option).catch(function(err){
-                        console.log("err");
+                        console.log("err",id);
                     });
     if(response.statusCode == 200){
         return parseRes.processPage(id,response);

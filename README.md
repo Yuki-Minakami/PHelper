@@ -7,9 +7,7 @@
 ##### getURL：按照ID逐个遍历pixiv上的图片，按一定规则筛选后提取页面中的图片URL，写入文件中
 ##### download：读取url文件下载图片
 
-----------------
-2017-05-02 
-v1.1更新 使用ES2017的async/await改善了异步流程，作为一个独立的worker实现，详见worker3.js
+
 ----------------
 
 ## 项目分支
@@ -25,18 +23,18 @@ v1.1更新 使用ES2017的async/await改善了异步流程，作为一个独立�
 ##### getURL 和download是两个分开的过程
 
 * 将项目克隆到本地后，在根目录下运行npm install
-* 进入getURL文件夹，运行 node master.js ,如果出现了依赖不存在的错误，请根据提示信息手动安装
-* 注：由于网络原因，pixiv的http request可能不流畅,运行master.js是会长时间没有结果，要测试的话请运行getURL/example.js 查看一次请求需要的时间
+
+###爬取链接
+* 进入cluster目录，运行master.js，开始爬取url
+*会开启一个生产者和多个消费者，由运行机器的cpu数量决定，持久化的方法需要自行实现，可以存入文件或者数据库
+
+###下载图片
+*等待优化
+
+* 注：由于网络原因，pixiv的http request可能不流畅,运行master.js可能会长时间没有结果，因此运行前请先使用ava跑一遍测试
 
 ------------------
 
-### 目前的问题
-##### 对response html的xpath解析还有问题
-##### 异步流程还需要改善 
-##### 对下载的图片文件还缺乏有效的的利用
-##### 有些dependcy node_module 需要更新
---------------------------------
-  
 #### 更新日志，发布计划详见[wiki](https://github.com/Yuki-Minakami/PHelper/wiki) 
 ----------  
   
