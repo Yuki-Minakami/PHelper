@@ -3,7 +3,6 @@
  */
 var cheerio = require('cheerio');
 var fs = require('fs');
-var persist = require('./persist.js');
 var util = require("./util.js");
 
 var parse = {
@@ -12,10 +11,7 @@ var parse = {
         var count = this.getViewCount($);
 
         if(count){
-            console.log("view count:", count);
-
             if(count >10000){
-                persist.saveToJson(JSON.stringify(data));
                 var data = {
                     "url":this.getUrl($)?this.getUrl($):id,
                     "count":count,

@@ -3,9 +3,11 @@
  */
 import test from 'ava';
 
-var createOption = require("../getURL/requestHeader");
+var createOption = require("../getURL/header");
 var parse = require("../getURL/parseRes");
 var request = require("request");
+var RequestId = require("../getURL/worker");
+
 
 test.cb("http request test",function(t){
     var option = createOption("46718715");

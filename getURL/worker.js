@@ -6,8 +6,10 @@ var fs = require('fs');
 var createHeader = require("./header");
 var request = require("request");
 var parseRes = require("./parseRes.js");
+var bluebird = require("bluebird");
 
 //自己封装的promise
+
 var rp = function(header){
    return new Promise(function(resolve,reject){
         request(header,function(err,response){
@@ -20,6 +22,10 @@ var rp = function(header){
         });
     });
 }
+
+//也可以
+//var rp = bluebird.promisify(request);
+
 
 async function RequestId(id){
     console.log(id);

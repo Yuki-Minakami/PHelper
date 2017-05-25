@@ -7,7 +7,9 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pixiv');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
+
 db.once('open', function (callback) {
+
 });
 
 var urlSchema = new mongoose.Schema({

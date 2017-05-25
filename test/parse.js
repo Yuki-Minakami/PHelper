@@ -4,9 +4,11 @@
 
 import test from 'ava';
 
-var createOption = require("../getURL/requestHeader");
+var createOption = require("../getURL/header");
 var parse = require("../getURL/parseRes");
 var request = require("request");
+var RequestId = require("../getURL/worker");
+
 
 test.cb("parse url",function(t){
     var option = createOption("46718715");
@@ -15,9 +17,9 @@ test.cb("parse url",function(t){
             console.log("error");
         }
         var result = parse.processPage("46718715",response);
-        //console.log(result);
 
         t.regex(result.url,new RegExp('[\s\S]*jpg'));
         t.end();
     });
 });
+
