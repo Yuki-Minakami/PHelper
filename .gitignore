@@ -8,3 +8,5 @@ download/d2
 *.jpg
 /async_demo
 /server
+.vscode
+/getURL/persist.js

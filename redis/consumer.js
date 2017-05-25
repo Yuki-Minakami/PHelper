@@ -4,7 +4,7 @@
 var redis = require("redis");
 var bluebird = require("bluebird");
 var EventEmitter = require("events");
-var request = require("./request-async");
+var request = require("../getURL/worker");
 
 var client  = redis.createClient('6379', '127.0.0.1');
 bluebird.promisifyAll(redis.RedisClient.prototype);
@@ -45,7 +45,8 @@ consumer.on('begin',async function(){
     {
         var value = await client.lpopAsync("mqTest");
         //调用封装好的request方法
-        await request(value);
+        let result = await request(value);
+        //之后可以调用持久化方法进行存储，这里不再提供实现
         if(this.status === "pause" ){
             break;
         }
