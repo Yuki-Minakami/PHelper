@@ -4,9 +4,9 @@ download/image
 download/toho
 download/touken
 download/d2
-/test
-*.txt
 *.dat
 *.jpg
 /async_demo
 /server
+.vscode
+/getURL/persist.js

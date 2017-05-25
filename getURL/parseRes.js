@@ -5,10 +5,9 @@ var cheerio = require('cheerio');
 var fs = require('fs');
 var persist = require('./persist.js');
 var util = require("./util.js");
-var config = require("./config.js");
 
 var parse = {
-    processPage:function(response){
+    processPage:function(id,response){
         $ = cheerio.load(response.body);
         var count = this.getViewCount($);
 
@@ -18,15 +17,16 @@ var parse = {
             if(count >10000){
                 persist.saveToJson(JSON.stringify(data));
                 var data = {
-                    "url":this.getUrl($),
+                    "url":this.getUrl($)?this.getUrl($):id,
                     "count":count,
                     "tag":this.getTag($)
                 }
-                console.log("url: ",data.url," count: ",data.count," tag: ",data.tag);
+
+                return {url: data.url,count:data.count,tag:data.tag};
             }
 
         } else{
-            return;
+            return undefined;
         }
 
     },

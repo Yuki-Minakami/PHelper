@@ -1,6 +1,9 @@
 {
   "name": "spider",
   "version": "0.0.1",
+  "scripts": {
+    "test": "ava"
+  },
   "dependencies": {
     "async": "^1.5.1",
     "bluebird": "^3.3.4",
@@ -11,6 +14,9 @@
     "monk": "https://github.com/vccabral/monk.git",
     "request": "",
     "request-promise-native": "^1.0.3",
-    "superagent": ""
+    "superagent": "",
+    "ava": "^0.19.1",
+    "mongoose": "^4.9.4"
   }
+
 }
