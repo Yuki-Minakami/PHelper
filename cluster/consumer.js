@@ -59,7 +59,7 @@ async function getListLength(){
 
     if(length == 0 && consumer.status ==="begin"){
         consumer.emit("pause");
-    }else if(this.status ==="pause" && length >1000){
+    }else if(consumer.status ==="pause" && length >1000){
         //设置当缓冲区大于1000时才启动消费者，避免在临界值附近反复切换状态
         consumer.emit("resume");
     }

@@ -4,7 +4,8 @@
 var fs = require('fs');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/pixiv');
+var options = {server: {socketOptions: {socketTimeoutMS: 3000}}};
+mongoose.connect('mongodb://localhost/pixiv',options);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -19,8 +20,6 @@ var urlSchema = new mongoose.Schema({
 
 });
 var urlList = db.model("urlList",urlSchema,"url");
-
-
 
 
 var persist = {
