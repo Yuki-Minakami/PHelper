@@ -10,3 +10,4 @@ download/d2
 /server
 .vscode
 /getURL/persist.js
+*.html
