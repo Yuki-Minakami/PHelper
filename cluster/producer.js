@@ -35,9 +35,9 @@ producer.on("pause",function(){
 
 });
 
-producer.on("resume",() => {
+producer.on("resume",function() {
     if(this.status === "pause"){
-        this.status = "begin";
+        console.log("ready to resume");
         this.emit("begin");
     }
 });
@@ -61,13 +61,14 @@ async function getListLength(){
    var length  = await client.llenAsync("mqTest");
    console.log("Current Length is",length);
    //当缓冲区的数量到达100000时，暂停生产
-   if(length > 100000){
+   if(length > 2000){
        producer.emit("pause");
-   }else if(this.status ==="pause"){
-       //缓冲区大小低于阈值，恢复执行
-       producer.emit("resume");
+   }else if(producer.status == "pause"){
+           producer.emit("resume");
+
    }
 }
 producer.emit("begin");
 
-setInterval(getListLength,5000);//每隔10s检查一次
+setInterval(getListLength,100);//每隔10s检查一次
+
