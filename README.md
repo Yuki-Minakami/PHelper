@@ -1,5 +1,5 @@
 <p align="center">
-    <h1>PHelper</h1>
+    <font size=8>PHelper</font>
 </p>
  
 <p align="center">
