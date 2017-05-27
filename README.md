@@ -1,6 +1,5 @@
-<p align="center">
-    <font size=8>PHelper</font>
-</p>
+
+<h1 align="center">PHelper</h1>
  
 <p align="center">
   <a title = "Building Status" href="https://travis-ci.org/Yuki-Minakami/PHelper">
