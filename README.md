@@ -1,4 +1,6 @@
-<center><h1>PHelper</h1></center>
+<p align="center">
+    <h1>PHelper</h1>
+</p>
  
 <p align="center">
   <a title = "Building Status" href="https://travis-ci.org/Yuki-Minakami/PHelper">
@@ -32,11 +34,11 @@
 
 * 将项目克隆到本地后，在根目录下运行npm install
 
-###爬取链接
+### 爬取链接
 * 进入cluster目录，运行master.js，开始爬取url
 * 这会开启一个生产者和多个消费者，由运行机器的cpu数量决定，持久化的方法需要自行实现，可以存入文件或者数据库
 
-###下载图片
+### 下载图片
 * 等待优化
 
 * 注：由于网络原因，pixiv的http request可能不流畅,运行master.js可能会长时间没有结果，因此运行前请先使用ava跑一遍测试
