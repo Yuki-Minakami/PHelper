@@ -13,8 +13,9 @@ bluebird.promisifyAll(redis.Multi.prototype);
 client.on("error", function(error) {
     console.log(error);
 });
-client.on("ready",function(){
-     console.log("ready");
+client.on("ready",async function(){
+    await client.ltrimAsync("mqTest",1,0);
+    producer.emit("begin");
 })
 
 class Producer extends EventEmitter{
@@ -68,7 +69,9 @@ async function getListLength(){
 
    }
 }
-producer.emit("begin");
+
+
+
 
 setInterval(getListLength,100);//每隔10s检查一次
 
