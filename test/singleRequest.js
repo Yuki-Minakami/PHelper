@@ -10,12 +10,28 @@ var RequestId = require("../getURL/worker");
 
 
 test.cb("http request test",function(t){
-    var option = createOption("46718715");
+    var option = createOption("40002784");
     request(option,function(err,response){
         if(err){
             console.log("error");
         }
         t.true(response.statusCode == 200);
+        t.end();
+    });
+})
+
+
+test.cb("http request test",function(t){
+    var id = "40002784";
+    var option = createOption("40002784");
+    request(option,function(err,response){
+        if(err){
+            console.log("error");
+        }
+
+        var data = parse.processPage(id,response);
+        console.log(data)
+        t.true(data.url > 10000);
         t.end();
     });
 })

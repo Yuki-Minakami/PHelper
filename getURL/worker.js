@@ -6,7 +6,6 @@ var fs = require('fs');
 var createHeader = require("./header");
 var request = require("request");
 var parseRes = require("./parseRes.js");
-var bluebird = require("bluebird");
 
 //自己封装的promise
 
@@ -28,7 +27,6 @@ var rp = function(header){
 
 
 async function RequestId(id){
-    console.log(id);
     var option = createHeader(id.toString());
     let response =  await rp(option).catch(function(err){
                         console.log("err",id);
@@ -36,7 +34,7 @@ async function RequestId(id){
     if(response.statusCode == 200){
         return parseRes.processPage(id,response);
     }else{
-        console.log("warning:get http response exception");
+        console.log(id ,"get http response exception");
         return undefined;
     }
 }

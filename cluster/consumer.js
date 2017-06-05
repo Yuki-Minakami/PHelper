@@ -46,6 +46,9 @@ consumer.on('begin',async function(){
         var value = await client.lpopAsync("mqTest");
         //调用封装好的request方法
         let result = await request(value);
+        if(result){
+            console.log(result);
+        }
         //之后可以调用持久化方法进行存储，这里不再提供实现
         if(this.status === "pause" ){
             break;
@@ -63,7 +66,7 @@ async function getListLength(){
         //设置当缓冲区大于1000时才启动消费者，避免在临界值附近反复切换状态
         consumer.emit("resume");
     }
-    console.log("current length ",length);
+   // console.log("current length ",length);
 }
 
 

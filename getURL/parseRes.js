@@ -5,21 +5,21 @@ var cheerio = require('cheerio');
 var fs = require('fs');
 var util = require("./util.js");
 
+
 var parse = {
     processPage:function(id,response){
         $ = cheerio.load(response.body);
-        var count = this.getViewCount($);
+        var count = this.getViewCount($,id);
 
-        if(count){
-            if(count >10000){
-                var data = {
-                    "url":this.getUrl($)?this.getUrl($):id,
-                    "count":count,
-                    "tag":this.getTag($)
-                }
-
-                return {url: data.url,count:data.count,tag:data.tag};
+        if(count && count >10000){
+            let prasedurl = this.getUrl($);
+            const data = {
+                "url":prasedurl? prasedurl:id,
+                "count":count,
+                "tag":this.getTag($)
             }
+
+            return data;
 
         } else{
             return undefined;
@@ -27,10 +27,10 @@ var parse = {
 
     },
 
-    getViewCount:function($){
+    getViewCount:function($,id){
         var viewCount = util.coalesce($('dd.view-count').html(),$('li.info span.views').html());
         if(!viewCount){
-            console.log("selector error, the image may have been deleted");
+            console.log(id,"may have been deleted");
             return undefined;
         }
         return viewCount;

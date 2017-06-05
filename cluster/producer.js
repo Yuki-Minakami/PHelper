@@ -50,7 +50,7 @@ producer.on("begin",async function(){
         if(this.status === "pause"){
             break;
         }
-        var msg = "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="+this.id;
+        var msg = this.id;
         //写入redis
         await client.lpushAsync("mqTest",msg);
         ++this.id;
@@ -60,9 +60,9 @@ producer.on("begin",async function(){
 async function getListLength(){
     //获取缓冲区大小
    var length  = await client.llenAsync("mqTest");
-   console.log("Current Length is",length);
-   //当缓冲区的数量到达100000时，暂停生产
-   if(length > 2000){
+   //console.log("Current Length is",length);
+   //当缓冲区的数量到达10000时，暂停生产
+   if(length > 10000){
        producer.emit("pause");
    }else if(producer.status == "pause"){
            producer.emit("resume");
@@ -73,5 +73,5 @@ async function getListLength(){
 
 
 
-setInterval(getListLength,100);//每隔10s检查一次
+setInterval(getListLength,1000);//每隔10s检查一次
 

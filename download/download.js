@@ -2,13 +2,15 @@ var fs = require('fs');
 var request = require('request');
 var count = 0;
 
-/*url format: http://i2.pixiv.net/c/600x600/img-master/img/2014/08/14/23/06/55/45358677_p0_master1200.jpg*/
+/* example
+ http://i2.pixiv.net/c/600x600/img-master/img/2014/08/14/23/06/55/45358677_p0_master1200.jpg
+ */
 function download(url,callback){
     if(!url) {
-        console.log("Must specify a url");
+        console.err("Must specify a url");
         return;
     }
-   var path = 'image';
+    var path = 'image';
     var id= url.substring(url.lastIndexOf('/')+1,url.indexOf('_'));
     var filename = url.replace(/\//g,"+").replace(/:/g,"*");
 
