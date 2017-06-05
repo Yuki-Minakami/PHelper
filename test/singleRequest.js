@@ -23,15 +23,15 @@ test.cb("http request test",function(t){
 
 test.cb("http request test",function(t){
     var id = "40002784";
-    var option = createOption("40002784");
+    var option = createOption("63149181");
     request(option,function(err,response){
         if(err){
             console.log("error");
         }
 
         var data = parse.processPage(id,response);
-        console.log(data)
-        t.true(data.url > 10000);
+       // console.log(data)
+        t.true(data.count > 10000);
         t.end();
     });
 })
