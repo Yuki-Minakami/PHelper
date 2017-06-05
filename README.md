@@ -19,7 +19,7 @@
 
 ## 项目结构
 主要代码分布在getURL和download文件夹中
-######【注】getURL 和download是两个分开的过程
+#####【注】getURL 和download是两个分开的过程
 
 ##### getURL：按照ID逐个遍历pixiv上的图片，按一定规则筛选后提取页面中的图片URL，写入持久化介质中(需要自行实现)
 ##### download：从持久化介质中读取url并下载图片
