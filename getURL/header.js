@@ -5,6 +5,7 @@
 function createHeader(id) {
     var option = {
         url: "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="+id,
+        timeout:5000,
         headers: {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-charset': 'utf8',

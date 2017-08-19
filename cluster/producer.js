@@ -89,9 +89,11 @@ setInterval(async function(){
     if(length > 10000 && producer.status == "begin"){
         console.log("producer will pause");
         producer.emit("pause");
-    }else if(producer.status === "pause"){
+    }
+
+    if(length<10000 && producer.status === "pause"){
         producer.emit("resume");
     }
 
-},10000);//每隔1s检查一次
+},10000);//每隔10s检查一次
 

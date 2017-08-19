@@ -31,7 +31,7 @@ async function RequestId(id){
     let response =  await rp(option).catch(function(err){
                         console.log("err",id);
                     });
-    if(response.statusCode == 200){
+    if(response && response.statusCode == 200){
         return parseRes.processPage(id,response);
     }else{
       //  console.log(id ,"get http response exception");

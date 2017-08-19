@@ -45,7 +45,7 @@ consumer.on('begin',async function(){
     {
         var value = await client.rpopAsync("mqTest");
         //调用封装好的request方法
-        let result = await request(value);
+        let result = await Promise.race([request(value),timeout(10000)]);
 
         //提供的默认持久化方法
         if(result){
@@ -74,5 +74,11 @@ async function getListLength(){
 
 }
 
+
+function timeout(ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, ms, 'timeout');
+    });
+}
 
 setInterval(getListLength,30000);//每隔30s检查一次缓冲区
