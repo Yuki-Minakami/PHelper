@@ -2,9 +2,9 @@
  * Created by likai on 西暦16/01/25.
  * 构建http request header
  */
-function createHeader(url) {
+function createHeader(id) {
     var option = {
-        url: "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="+url,
+        url: "https://www.pixiv.net/member_illust.php?mode=medium&illust_id="+id,
         headers: {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-charset': 'utf8',

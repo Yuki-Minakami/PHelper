@@ -4,14 +4,14 @@
 var cheerio = require('cheerio');
 var fs = require('fs');
 var util = require("./util.js");
-
+var config = require('../config.js');
 
 var parse = {
     processPage:function(id,response){
         $ = cheerio.load(response.body);
         var count = this.getViewCount($,id);
 
-        if(count && count >10000){
+        if(count && count >config.minViewCount){
             let prasedurl = this.getUrl($);
             const data = {
                 "url":prasedurl? prasedurl:id,
@@ -30,7 +30,7 @@ var parse = {
     getViewCount:function($,id){
         var viewCount = util.coalesce($('dd.view-count').html(),$('li.info span.views').html());
         if(!viewCount){
-            console.log(id,"may have been deleted");
+           // console.log(id,"may have been deleted");
             return undefined;
         }
         return viewCount;

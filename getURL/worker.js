@@ -34,7 +34,7 @@ async function RequestId(id){
     if(response.statusCode == 200){
         return parseRes.processPage(id,response);
     }else{
-        console.log(id ,"get http response exception");
+      //  console.log(id ,"get http response exception");
         return undefined;
     }
 }

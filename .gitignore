@@ -11,3 +11,4 @@ download/d2
 .vscode
 /getURL/persist.js
 *.html
+.nyc_output/
