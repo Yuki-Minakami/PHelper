@@ -16,7 +16,8 @@ var parse = {
             const data = {
                 "url":prasedurl? prasedurl:id,
                 "count":count,
-                "tag":this.getTag($)
+                "tag":this.getTag($),
+                "author":this.getAuthor($)
             }
 
             return data;
@@ -54,7 +55,14 @@ var parse = {
         }
         return undefined;
 
+    },
+    getAuthor:function($){
+        let author = $('div.profile-unit a.user-link h1.user').html();
+        if(!author) return undefined;
+        return unescape(author.replace(/&#x/g,'%u').replace(/;/g,''));
+
     }
+
 }
 
 
