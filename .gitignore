@@ -12,3 +12,4 @@ download/d2
 /getURL/persist.js
 *.html
 .nyc_output/
+.idea/
