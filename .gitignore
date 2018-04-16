@@ -1,9 +1,5 @@
 /node_modules
-download/fate
-download/image
-download/toho
-download/touken
-download/d2
+download/
 *.dat
 *.jpg
 /async_demo
@@ -12,3 +8,4 @@ download/d2
 /getURL/persist.js
 *.html
 .nyc_output/
+.idea/

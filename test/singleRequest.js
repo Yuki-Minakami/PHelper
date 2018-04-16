@@ -10,7 +10,7 @@ var RequestId = require("../getURL/worker");
 
 
 test.cb("http request test",function(t){
-    var id = "40002784"
+    var id = "68011036";
     var option = createOption(id);
     request(option,function(err,response){
         if(err){

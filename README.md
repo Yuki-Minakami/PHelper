@@ -52,7 +52,7 @@
 <h5>更新日志，发布计划详见[wiki](https://github.com/Yuki-Minakami/PHelper/wiki) 
 
   
-#### 如果有疑问欢迎提issue，或者联系likaiboy_2012@126.com
+#### 如果有疑问欢迎提issue
 
 
 
