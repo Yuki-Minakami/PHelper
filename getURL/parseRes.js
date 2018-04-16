@@ -38,13 +38,15 @@ var parse = {
 
     },
     getTag:function($){
-        var tagHtml = $('li.tag a.text').html();
-        if(!tagHtml){
-            return undefined
-        }
-        var tag = tagHtml.toString().replace(/<span.*<\/span>/,"");
+        var tagList = [];
+        $('span.tags-container ul.tags').find('li > a.text').each(function(index,element){
+            var tag = $(element).html();
+            tag = unescape(tag.replace(/&#x/g,'%u').replace(/;/g,''));
 
-        return unescape(tag.replace(/&#x/g,'%u').replace(/;/g,''));
+            tagList.push(tag);
+        });
+
+        return tagList;
 
     },
     getUrl:function($) {
@@ -57,7 +59,7 @@ var parse = {
 
     },
     getAuthor:function($){
-        let author = $('div.profile-unit a.user-link h1.user').html();
+        let author = $('div.profile > a.user-name').html();
         if(!author) return undefined;
         return unescape(author.replace(/&#x/g,'%u').replace(/;/g,''));
 
