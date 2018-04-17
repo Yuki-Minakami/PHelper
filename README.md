@@ -12,6 +12,12 @@
 
 ### 这是一个基于Node.js的爬虫项目，主要用来爬取[pixiv.net-插画网站](http://pixiv.net)上的高分图片
 
+
+### 运行示例
+
+![screenshot](https://github.com/Yuki-Minakami/PHelper/blob/master/screenshot.gif)
+
+
 ## PHelper可以做什么
 * 根据用户自定义规则来爬取满足条件的图片信息，包括链接和tag等。<br/>
 * 爬下来的图片可以做一些有趣的应用，例如机器学习和推荐系统，或者一个第三方app等等
@@ -39,9 +45,6 @@
 * 进入cluster目录，运行`npm start`
 * 这会开启一个生产者和多个消费者，由运行机器的cpu数量决定，
 
-### 运行示例
-
-![screenshot](https://github.com/Yuki-Minakami/PHelper/blob/master/screenshot.gif)
 
 ###持久化
 默认的持久化策略是存储在根目录下的url.dat文件中，开发者也可以自行实现。
