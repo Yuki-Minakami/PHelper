@@ -3,5 +3,6 @@
  */
 module.exports = {
     minViewCount:-1,
-    startID:10000000
+    startID:10000000,
+    saveFilePath:"./url.dat"
 }

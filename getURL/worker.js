@@ -6,8 +6,6 @@ var fs = require('fs');
 var createHeader = require("./header");
 var request = require("request");
 var parseRes = require("./parseRes.js");
-
-var presist = require("./persist");
 //自己封装的promise
 
 var rp = function(header){
