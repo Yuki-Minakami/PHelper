@@ -4,5 +4,6 @@
 module.exports = {
     minViewCount:-1,
     startID:10000000,
-    saveFilePath:"./url.dat"
+    saveFilePath: __dirname+"/url.dat",
+    defaultPersistSolution:"file"
 }
