@@ -39,6 +39,10 @@
 * 进入cluster目录，运行`npm start`
 * 这会开启一个生产者和多个消费者，由运行机器的cpu数量决定，
 
+### 运行示例
+
+![screenshot](https://github.com/Yuki-Minakami/PHelper/blob/master/screenshot.gif)
+
 ###持久化
 默认的持久化策略是存储在根目录下的url.dat文件中，开发者也可以自行实现。
 
