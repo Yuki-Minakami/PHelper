@@ -7,6 +7,7 @@ var createHeader = require("./header");
 var request = require("request");
 var parseRes = require("./parseRes.js");
 
+var presist = require("./persist");
 //自己封装的promise
 
 var rp = function(header){
@@ -32,7 +33,8 @@ async function RequestId(id){
                         console.log("err",id);
                     });
     if(response && response.statusCode == 200){
-        return parseRes.processPage(id,response);
+        var msg = parseRes.processPage(id,response);
+        return msg;
     }else{
       //  console.log(id ,"get http response exception");
         return undefined;

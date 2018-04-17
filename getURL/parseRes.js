@@ -13,9 +13,13 @@ var parse = {
 
         if(count && count >config.minViewCount){
             let prasedurl = this.getUrl($);
+            let url = prasedurl? prasedurl:id;
+            let date = url.substr(url.indexOf("/img-original/img/")+18,10);
             const data = {
-                "url":prasedurl? prasedurl:id,
+                "id":id,
+                "url":url,
                 "count":count,
+                "date":date,
                 "tag":this.getTag($),
                 "author":this.getAuthor($)
             }
