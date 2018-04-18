@@ -12,7 +12,8 @@ bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
 client.on("error", function(error) {
-    console.log(error);
+    console.log("Producer redis client error ",error);
+    process.exit();
 });
 
 var StartID = config.startID;
